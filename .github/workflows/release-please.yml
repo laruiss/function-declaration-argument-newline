@@ -25,15 +25,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         if: ${{ steps.release.outputs.release_created }}
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+        if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v6
         with:
           node-version: 24
           registry-url: 'https://registry.npmjs.org'
           package-manager-cache: false
         if: ${{ steps.release.outputs.release_created }}
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
         if: ${{ steps.release.outputs.release_created }}
-      - run: npm install -g npm@latest
+      - run: pnpm build
         if: ${{ steps.release.outputs.release_created }}
       - run: npm publish --access public
         if: ${{ steps.release.outputs.release_created }}
