@@ -32,7 +32,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
+      - run: npm install -g npm@latest
+        if: ${{ steps.release.outputs.release_created }}
       - run: npm publish --access public
         if: ${{ steps.release.outputs.release_created }}
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
