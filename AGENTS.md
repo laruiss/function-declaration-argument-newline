@@ -1,111 +1,111 @@
-# Guide des consignes IA pour function-declaration-argument-newline
+# AI Agent Instructions Guide for function-declaration-argument-newline
 
-Ce document est le **point d'entrée central** pour tous les agents IA (Copilot, Claude, Codex, etc.) travaillant sur `function-declaration-argument-newline`.
+This document is the **central entry point** for all AI agents (Copilot, Claude, Codex, etc.) working on `function-declaration-argument-newline`.
 
-## Vue d'ensemble
+## Overview
 
-`function-declaration-argument-newline` utilise un système hiérarchique de consignes IA :
+`function-declaration-argument-newline` uses a hierarchical system of AI instructions:
 
-- **`.agents/`** : consignes communes agnostiques à tous les agents
-- **Adaptateurs spécifiques** : `.github/` (Copilot), `.claude/` (Claude), `.codex/` (Codex)
+- **`.agents/`**: common instructions, agnostic to all agents
+- **Agent-specific adapters**: `.github/` (Copilot), `.claude/` (Claude), `.codex/` (Codex)
 
-## Chargement des consignes
+## Loading instructions
 
-### Étape 1 : Identifier le type de tâche
+### Step 1: Identify the task type
 
-Déterminer quelle catégorie correspond à la requête de l'utilisateur :
+Determine which category matches the user's request:
 
-| Type de tâche | Skill à charger |
+| Task type | Skill to load |
 |---------------|----------------|
-| Implémenter du code, refactoring, bugfix | `code-implementation` |
-| Écrire des tests, améliorer la couverture | `test-writing` |
-| Rédiger de la documentation, README, guides | `documentation` |
-| Créer un commit, vérifier les conventions | `commit-conventions` |
+| Implement code, refactoring, bugfix | `code-implementation` |
+| Write tests, improve coverage | `test-writing` |
+| Write documentation, README, guides | `documentation` |
+| Create a commit, check conventions | `commit-conventions` |
 
-### Étape 2 : Charger le skill approprié
+### Step 2: Load the appropriate skill
 
-1. Lire `.agents/skills/<nom-du-skill>/SKILL.md`
-2. Suivre les références vers les fichiers associés :
-   - `.agents/instructions.md` (règles de codage communes)
-   - `.agents/commit-message.md` (conventions de commit)
-   - `.agents/tasks.md` (attentes par type de tâche)
-   - `tasks.md` du skill (tâches spécifiques)
+1. Read `.agents/skills/<skill-name>/SKILL.md`
+2. Follow the references to the associated files:
+   - `.agents/instructions.md` (common coding rules)
+   - `.agents/commit-message.md` (commit conventions)
+   - `.agents/tasks.md` (expectations per task type)
+   - the skill's own `tasks.md` (skill-specific tasks)
 
-### Étape 3 : Appliquer les adaptateurs (si nécessaire)
+### Step 3: Apply adapters (if needed)
 
-Consulter l'adaptateur spécifique à votre agent pour les capacités étendues :
+Check the adapter specific to your agent for extended capabilities:
 
-- **Copilot** : `.github/copilot-instructions.md` et `.github/prompts/*.prompt.md`
-- **Claude** : `.claude/commands/*.md`
-- **Codex** : `.codex/skills/*.md` et `.codex/commands/*.md`
+- **Copilot**: `.github/copilot-instructions.md` and `.github/prompts/*.prompt.md`
+- **Claude**: `.claude/commands/*.md`
+- **Codex**: `.codex/skills/*.md` and `.codex/commands/*.md`
 
-## Commandes disponibles
+## Available commands
 
-Les commandes suivantes sont exposées par les adaptateurs d’agent lorsqu’ils sont présents (`.codex/commands/`, `.claude/commands/`, `.github/prompts/`) :
+The following commands are exposed by agent adapters when present (`.codex/commands/`, `.claude/commands/`, `.github/prompts/`):
 
-| Workflow | Description | Commande |
+| Workflow | Description | Command |
 |----------|-------------|----------|
-| `commit-staged.md` | Créer un commit Conventional Commits avec gitmoji | `/commit-staged` |
-| `create-branch.md` | Créer une branche depuis une issue GitHub | `/create-branch <issue-id>` |
-| `create-issue.md` | Créer une issue GitHub depuis les changements staged | `/create-issue` |
-| `create-pr.md` | Créer une Pull Request vers la branche cible du dépôt | `/create-pr [base-branch]` |
+| `commit-staged.md` | Create a Conventional Commit with gitmoji | `/commit-staged` |
+| `create-branch.md` | Create a branch from a GitHub issue | `/create-branch <issue-id>` |
+| `create-issue.md` | Create a GitHub issue from staged changes | `/create-issue` |
+| `create-pr.md` | Create a Pull Request to the repository's target branch | `/create-pr [base-branch]` |
 
-**Usage** : les commandes custom des adaptateurs doivent rester minimales et renvoyer vers les consignes communes dans `.agents/*`.
+**Usage**: agent adapters' custom commands must stay minimal and point back to the common instructions in `.agents/*`.
 
-## Priorités des skills
+## Skill priorities
 
-Certains skills ont priorité sur d'autres selon le contexte :
+Some skills take priority over others depending on context:
 
-1. **commit-conventions** : priorité absolue pour toute opération de commit ou PR
-2. **code-implementation** : priorité pour l'implémentation de code
-3. **test-writing** : priorité lors de l'écriture de tests
-4. **documentation** : priorité pour la documentation
+1. **commit-conventions**: absolute priority for any commit or PR operation
+2. **code-implementation**: priority for code implementation
+3. **test-writing**: priority when writing tests
+4. **documentation**: priority for documentation
 
-## Conventions de commit
+## Commit conventions
 
-function-declaration-argument-newline utilise **Conventional Commits** avec **gitmoji** :
+function-declaration-argument-newline uses **Conventional Commits** with **gitmoji**:
 
 ```text
 <type>: <gitmoji> <description>
 
-## Pourquoi les changements ont été faits :
-- raison 1
-- raison 2
+## Why the change was made:
+- reason 1
+- reason 2
 
-## Quelles modifications ont été apportées :
-- modification 1
-- modification 2
+## What was changed:
+- change 1
+- change 2
 ```
 
-**Types principaux** :
+**Main types**:
 
-- `feat` : nouvelle fonctionnalité
-- `fix` : correction de bug
-- `docs` : documentation
-- `refactor` : refactoring sans changement de comportement
-- `test` : ajout ou modification de tests
-- `chore` : maintenance, dépendances
+- `feat`: new feature
+- `fix`: bug fix
+- `docs`: documentation
+- `refactor`: refactoring with no behavior change
+- `test`: adding or changing tests
+- `chore`: maintenance, dependencies
 
-Voir `.agents/commit-message.md` pour la référence complète.
+See `.agents/commit-message.md` for the full reference.
 
-## Structure du projet
+## Project structure
 
-function-declaration-argument-newline est un plugin pour eslint.
+function-declaration-argument-newline is an ESLint plugin.
 
 
-## Aide et référence
+## Help and reference
 
-- **Gouvernance des consignes** : `.agents/README.md`
-- **Instructions de codage** : `.agents/instructions.md`
-- **Conventions de commit** : `.agents/commit-message.md`
-- **Skills disponibles** : `.agents/skills/*/SKILL.md`
-- **Commandes Codex** : `.codex/commands/*.md`
-- **Commandes Claude** : `.claude/commands/*.md`
-- **Prompts Copilot** : `.github/prompts/*.prompt.md`
+- **Instruction governance**: `.agents/README.md`
+- **Coding instructions**: `.agents/instructions.md`
+- **Commit conventions**: `.agents/commit-message.md`
+- **Available skills**: `.agents/skills/*/SKILL.md`
+- **Codex commands**: `.codex/commands/*.md`
+- **Claude commands**: `.claude/commands/*.md`
+- **Copilot prompts**: `.github/prompts/*.prompt.md`
 
-## Pour les nouveaux contributeurs
+## For new contributors
 
-1. Lire ce fichier en entier
-2. Consulter `.agents/README.md` pour comprendre la gouvernance
-3. Charger le skill approprié selon la tâche
-4. Utiliser les workflows communs pour les opérations Git/GitHub
+1. Read this file in full
+2. Check `.agents/README.md` to understand governance
+3. Load the appropriate skill for the task
+4. Use the common workflows for Git/GitHub operations

@@ -1,171 +1,172 @@
-# 🎯 Conventions Git & Commits
+# 🎯 Git & Commit Conventions
 
-Ce fichier contient les instructions pour créer des messages de commit respectant les conventions du projet.
+This file documents how to write commit messages that follow this project's conventions.
 
-## Format des commits
+## Commit format
 
-Le projet utilise le format Conventional Commit avec des gitmojis.
+The project uses the Conventional Commits format with gitmojis.
 
-## Structure des messages de commit
+## Commit message structure
 
 ```text
-type: gitmoji description courte
-type(scope): gitmoji description courte
+type: gitmoji short description
+type(scope): gitmoji short description
 
-## Pourquoi les changements ont été faits :
-- Explication du contexte et des raisons
-- Problème résolu ou besoin adressé
+## Why the change was made:
+- Context and reasoning
+- Problem solved or need addressed
 
-## Quelles modifications ont été apportées :
-- Description détaillée des modifications
-- Impact sur la règle ESLint, l’export du plugin, les tests ou le packaging
+## What was changed:
+- Detailed description of the changes
+- Impact on the ESLint rule, the plugin export, tests, or packaging
 
 closes #1234
 ```
 
-Pas de majuscule au début de la description courte.
+No capital letter at the start of the short description.
 
-Utilise la troisième personne du singulier au présent de l’indicatif pour la description courte.
+Use the third-person singular, present tense for the short description.
 
-Le scope est optionnel. Utilise-le lorsqu’il apporte un contexte utile au titre du commit.
+The scope is optional. Use it when it adds useful context to the commit title.
 
-Scopes recommandés pour ce dépôt :
+Recommended scopes for this repository:
 
-- `function-declaration-argument-newline` : règle actuelle
-- `rules` : plusieurs règles
-- `plugin` : export, métadonnées ou surface publique
-- `types` : typage TypeScript
-- `docs` : documentation
-- `build` : packaging, compilation ou dépendances
-- `ci` : intégration continue
+- `function-declaration-argument-newline`: the original rule
+- `import-specifier-newline`: the import/export specifier rule
+- `rules`: multiple rules
+- `plugin`: export, metadata, or public surface
+- `types`: TypeScript typing
+- `docs`: documentation
+- `build`: packaging, compilation, or dependencies
+- `ci`: continuous integration
 
-Exemple :
+Example:
 
 ```text
-fix(function-declaration-argument-newline): 🐛 préserve les commentaires de ligne pendant l’autofix
+fix(function-declaration-argument-newline): 🐛 preserve line comments during autofix
 
-## Pourquoi les changements ont été faits :
-- L’autofix ne doit pas déplacer un commentaire de ligne placé entre deux paramètres
-- Un fix automatique ambigu peut produire un résultat inattendu pour l’utilisateur
+## Why the change was made:
+- Autofix must not move a line comment placed between two parameters
+- An ambiguous automatic fix can produce an unexpected result for the user
 
-## Quelles modifications ont été apportées :
-- Détecte les commentaires de ligne avant de proposer une correction automatique
-- Conserve le signalement ESLint pour le cas invalide
-- Ajoute une couverture de test dédiée
+## What was changed:
+- Detects line comments before offering an automatic fix
+- Keeps the ESLint report for the invalid case
+- Adds dedicated test coverage
 
 closes #1170
 ```
 
-## Gitmojis et types de commits principaux
+## Gitmojis and main commit types
 
-Ces gitmojis couvrent les cas d’usage courants dans le projet.
+These gitmojis cover the common use cases in this project.
 
-### Règles liées au contexte
+### Context-driven rules
 
-1. Si le changement corrige un comportement observé incorrect, le type est `fix`.
-2. Cette règle prime sur les autres intentions.
-3. Utiliser `feat` uniquement si le comportement ajouté n’existait pas auparavant et n’est pas la correction d’un bug.
-4. En cas de doute entre `fix` et un autre type, choisir `fix`.
+1. If the change fixes observed incorrect behavior, the type is `fix`.
+2. This rule takes priority over other intents.
+3. Use `feat` only when the added behavior didn't exist before and isn't a bug fix.
+4. When in doubt between `fix` and another type, choose `fix`.
 
-Test rapide :
+Quick test:
 
-- « Avant le changement, quelque chose fonctionnait mal ? » → `fix`
-- « Avant le changement, tout fonctionnait, on ajoute une capacité ? » → type non-`fix`, souvent `feat`
+- "Before the change, did something work incorrectly?" → `fix`
+- "Before the change, everything worked, and we're adding a capability?" → a non-`fix` type, usually `feat`
 
-### Développement quotidien
+### Everyday development
 
-| Intention | code gitmoji | gitmoji | type |
+| Intent | gitmoji code | gitmoji | type |
 | --- | --- | --- | --- |
-| Nouvelle règle ou nouveau comportement public | `:sparkles:` | ✨ | `feat` |
-| Correction de bug | `:bug:` | 🐛 | `fix` |
-| Refactoring sans changement de comportement | `:recycle:` | ♻️ | `refactor` |
-| Formatage sans changement de logique | `:lipstick:` | 💄 | `style` |
+| New rule or new public behavior | `:sparkles:` | ✨ | `feat` |
+| Bug fix | `:bug:` | 🐛 | `fix` |
+| Refactoring with no behavior change | `:recycle:` | ♻️ | `refactor` |
+| Formatting with no logic change | `:lipstick:` | 💄 | `style` |
 
-### Documentation et maintenance
+### Documentation and maintenance
 
-| Intention | code gitmoji | gitmoji | type |
+| Intent | gitmoji code | gitmoji | type |
 | --- | --- | --- | --- |
 | Documentation | `:memo:` | 📝 | `docs` |
 | Tests | `:white_check_mark:` | ✅ | `test` |
-| Maintenance générale | `:wrench:` | 🔧 | `chore` |
+| General maintenance | `:wrench:` | 🔧 | `chore` |
 
-### Build et publication
+### Build and publishing
 
-| Intention | code gitmoji | gitmoji | type |
+| Intent | gitmoji code | gitmoji | type |
 | --- | --- | --- | --- |
-| Build, packaging ou dépendances externes | `:package:` | 📦️ | `build` |
+| Build, packaging, or external dependencies | `:package:` | 📦️ | `build` |
 | CI/CD, GitHub Actions | `:construction_worker:` | 👷 | `ci` |
 
-### Corrections spécialisées
+### Specialized fixes
 
-| Intention | code gitmoji | gitmoji | type |
+| Intent | gitmoji code | gitmoji | type |
 | --- | --- | --- | --- |
-| Annulation de commit | `:rewind:` | ⏪ | `revert` |
-| Breaking change | `:boom:` | 💥 | `feat!` ou `fix!` |
-| Sécurité | `:lock:` | 🔒️ | `fix` |
-| Faute de frappe | `:pencil2:` | ✏️ | `docs` |
-| Warnings linter ou compilateur | `:rotating_light:` | 🚨 | `style` ou `fix` selon le contexte |
+| Commit revert | `:rewind:` | ⏪ | `revert` |
+| Breaking change | `:boom:` | 💥 | `feat!` or `fix!` |
+| Security | `:lock:` | 🔒️ | `fix` |
+| Typo | `:pencil2:` | ✏️ | `docs` |
+| Linter or compiler warnings | `:rotating_light:` | 🚨 | `style` or `fix` depending on context |
 | Performance | `:zap:` | ⚡ | `perf` |
 
-Pour les breaking changes, ajouter obligatoirement un footer `BREAKING CHANGE:` avec l’impact et la migration.
+For breaking changes, always add a `BREAKING CHANGE:` footer describing the impact and the migration path.
 
-## Exemples pratiques
+## Practical examples
 
 ```text
-feat(rules): ✨ ajoute une règle pour les retours à la ligne des paramètres
+feat(rules): ✨ add a rule for line breaks between function parameters
 
-## Pourquoi les changements ont été faits :
-- Les règles stylistiques existantes ne couvrent pas ce cas précis
-- Le package doit fournir une règle complémentaire à `function-call-argument-newline`
+## Why the change was made:
+- The existing stylistic rules don't cover this specific case
+- The package must provide a rule that complements `function-call-argument-newline`
 
-## Quelles modifications ont été apportées :
-- Ajout d’une règle ESLint dans `src/rules`
-- Export de la règle depuis le plugin
-- Documentation de l’option par défaut
+## What was changed:
+- Added an ESLint rule under `src/rules`
+- Exported the rule from the plugin
+- Documented the default option
 
 closes #1098
 ```
 
 ```text
-docs: 📝 documente l’usage avec flat config
+docs: 📝 document flat config usage
 
-## Pourquoi les changements ont été faits :
-- Les utilisateurs d’ESLint 9 configurent principalement les plugins avec flat config
-- Le README doit montrer le nom public de la règle
+## Why the change was made:
+- ESLint 9 users mostly configure plugins with flat config
+- The README must show the rule's public name
 
-## Quelles modifications ont été apportées :
-- Ajout d’un exemple `eslint.config.ts`
-- Clarification des options disponibles
+## What was changed:
+- Added an `eslint.config.ts` example
+- Clarified the available options
 
 closes #1234
 ```
 
 ```text
-build: 📦️ ajuste les fichiers publiés sur le registre npm
+build: 📦️ adjust the files published to the npm registry
 
-## Pourquoi les changements ont été faits :
-- Le package publié doit contenir uniquement les artefacts nécessaires
-- La configuration doit rester cohérente avec `exports`
+## Why the change was made:
+- The published package must contain only the necessary artifacts
+- The configuration must stay consistent with `exports`
 
-## Quelles modifications ont été apportées :
-- Mise à jour du champ `files`
-- Vérification du contenu avec `pnpm pack --dry-run`
+## What was changed:
+- Updated the `files` field
+- Verified the content with `pnpm pack --dry-run`
 
 closes #678
 ```
 
-## Anti-patterns à éviter
+## Anti-patterns to avoid
 
 ```text
-❌ feat: ajoute une règle
-✅ feat(rules): ✨ ajoute une règle pour les paramètres de fonctions
+❌ feat: add a rule
+✅ feat(rules): ✨ add a rule for function parameters
 
 ❌ fix: Bug autofix
-✅ fix(function-declaration-argument-newline): 🐛 corrige l’autofix avec commentaires
+✅ fix(function-declaration-argument-newline): 🐛 fix autofix with comments
 
-❌ update: Change des trucs
-✅ refactor(plugin): ♻️ simplifie l’export des règles
+❌ update: Change stuff
+✅ refactor(plugin): ♻️ simplify the rules export
 
 ❌ docs: Update README
-✅ docs: 📝 documente l’usage avec flat config
+✅ docs: 📝 document flat config usage
 ```

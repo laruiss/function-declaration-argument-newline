@@ -1,5 +1,5 @@
-## 🚨 Rappel
+## 🚨 Reminder
 
-> ⚠️ Les PR doivent être ouvertes **vers `main`**, sauf consigne contraire du mainteneur.
+> ⚠️ PRs must be opened **against `main`**, unless the maintainer says otherwise.
 >
-> Si vous voyez une autre branche de destination, vérifiez-la avant de soumettre la PR.
+> If you see a different target branch, double-check it before submitting the PR.

@@ -1,139 +1,128 @@
-# Instructions de codage IA pour function-declaration-argument-newline
+# AI Coding Instructions for function-declaration-argument-newline
 
-## Vue d’ensemble du projet
+## Project overview
 
-`function-declaration-argument-newline` est un package TypeScript publiable sur le registre npm qui fournit un plugin ESLint.
+`function-declaration-argument-newline` is a TypeScript package published on the npm registry that provides an ESLint plugin.
 
-Le plugin expose une règle de layout, `function-declaration-argument-newline`, qui impose la présence, l’absence ou la cohérence des retours à la ligne entre les paramètres des définitions de fonctions. Elle complète `@stylistic/function-call-argument-newline`, qui s’applique aux arguments d’appel, et `@stylistic/function-paren-newline`, qui ne contrôle pas les séparateurs entre paramètres.
+The plugin exposes layout rules that enforce the presence, absence, or consistency of line breaks between the items of a construct that `@stylistic/eslint-plugin` doesn't fully cover — starting with `function-declaration-argument-newline`, which handles line breaks between the parameters of a function definition. It complements `@stylistic/function-call-argument-newline`, which applies to call arguments, and `@stylistic/function-paren-newline`, which doesn't control the separators between parameters.
 
-**Nature du projet** : package ESM pour ESLint, compilé avec TypeScript et géré avec pnpm.
+**Nature of the project**: ESM package for ESLint, compiled with TypeScript and managed with pnpm.
 
-## Pour les tâches demandées
+## For requested tasks
 
-Voir le fichier [`tasks.md`](tasks.md) pour les instructions transversales.
-Avant toute modification, identifier la skill pertinente dans `skills/` et lire son `SKILL.md` ainsi que son `tasks.md`.
+See [`tasks.md`](tasks.md) for cross-cutting instructions.
+Before making any change, identify the relevant skill in `skills/` and read its `SKILL.md` and `tasks.md`.
 
-## Architecture et structure des fichiers
+## Architecture and file structure
 
-### Fichiers principaux
+### Main files
 
-- **`src/index.ts`** : point d’entrée du plugin ESLint, exporte les métadonnées et la liste des règles.
-- **`src/rules/function-declaration-argument-newline.ts`** : implémentation de la règle ESLint.
-- **`package.json`** : manifeste du package, exports publics, scripts et dépendances.
-- **`tsconfig.json`** : configuration de compilation TypeScript.
-- **`README.md`** : documentation utilisateur du package et de la règle.
+- **`src/index.ts`**: ESLint plugin entry point, exports the metadata and the list of rules.
+- **`src/rules/*.ts`**: ESLint rule implementations.
+- **`package.json`**: package manifest, public exports, scripts, and dependencies.
+- **`tsconfig.json`**: TypeScript compilation configuration.
+- **`README.md`**: user-facing documentation for the package and its rules.
 
-### Surface publique
+### Public surface
 
-Le package expose uniquement `./dist/index.js` via `exports`.
+The package only exposes `./dist/index.js` via `exports`.
 
-La règle publique est disponible sous le nom :
+Public rules are available under the following names:
 
 ```text
 @laruiss/newline/function-declaration-argument-newline
+@laruiss/newline/import-specifier-newline
 ```
 
-Toute modification de la surface publique doit être reflétée dans :
+Any change to the public surface must be reflected in:
 
 - `src/index.ts`
 - `README.md`
-- les métadonnées de règle (`meta.docs`, `schema`, `messages`)
-- les tests, lorsqu’ils existent
+- the rule metadata (`meta.docs`, `schema`, `messages`)
+- tests, where they exist
 
-## Workflow de développement
+## Development workflow
 
-### Installation et build
+### Install and build
 
 ```bash
 pnpm install
 pnpm build
 ```
 
-`pnpm build` compile `src/` vers `dist/` avec TypeScript.
+`pnpm build` compiles `src/` to `dist/` with TypeScript.
 
-### Vérifications recommandées
+### Recommended checks
 
 ```bash
 pnpm build
 pnpm pack --dry-run
 ```
 
-Utiliser `pnpm pack --dry-run` avant publication ou modification de packaging pour vérifier que seuls les fichiers attendus sont inclus.
+Use `pnpm pack --dry-run` before publishing or changing packaging, to verify that only the expected files are included.
 
-### Développement de règles ESLint
+### Developing ESLint rules
 
-Lors de la modification d’une règle :
+When modifying a rule:
 
-1. Lire l’implémentation complète de la règle concernée.
-2. Vérifier le comportement attendu pour les options `"always"`, `"never"` et `"consistent"`.
-3. Préserver l’autofix lorsque c’est possible.
-4. Ne pas proposer de fix automatique lorsqu’un commentaire de ligne rend la correction ambiguë.
-5. Conserver des messages d’erreur stables, sauf changement explicitement documenté.
-6. Mettre à jour la documentation utilisateur si le comportement, les options ou les exemples changent.
+1. Read the full implementation of the rule in question.
+2. Verify the expected behavior for the `"always"`, `"never"`, and `"consistent"` options.
+3. Preserve autofix wherever possible.
+4. Don't offer an automatic fix when a line comment would make the correction ambiguous.
+5. Keep error messages stable unless a change is explicitly documented.
+6. Update the user-facing documentation if the behavior, options, or examples change.
 
-## Qualité du code
+## Code quality
 
-- **Module system** : ESM (`"type": "module"`).
-- **Langage** : TypeScript.
-- **Style** : fonctions courtes, noms explicites, logique locale lisible.
-- **API ESLint** : utiliser les types ESLint disponibles quand ils sont suffisamment précis.
-- **Compatibilité** : respecter le `peerDependencies` ESLint `^9.0.0 || ^10.0.0`.
-- **Build artifacts** : ne pas modifier `dist/` manuellement.
-- **Gestionnaire de paquets** : utiliser pnpm et conserver `pnpm-lock.yaml`.
+- **Module system**: ESM (`"type": "module"`).
+- **Language**: TypeScript.
+- **Style**: short functions, explicit names, readable local logic.
+- **ESLint API**: use the available ESLint types when they're precise enough.
+- **Compatibility**: respect the `peerDependencies` ESLint range `^9.0.0 || ^10.0.0`.
+- **Build artifacts**: don't edit `dist/` by hand.
+- **Package manager**: use pnpm and keep `pnpm-lock.yaml` up to date.
 
-## Règles générales
+## General rules
 
-- Préserver l’API publique sauf demande explicite de changement incompatible.
-- Éviter les dépendances runtime inutiles : une règle ESLint simple doit rester légère.
-- Favoriser les helpers locaux lorsqu’ils clarifient réellement l’algorithme.
-- Ne pas affaiblir le typage sans raison documentée.
-- Garder les commentaires rares et utiles, notamment pour expliquer les cas ESLint ou autofix non évidents.
+- Preserve the public API unless an incompatible change is explicitly requested.
+- Avoid unnecessary runtime dependencies: a simple ESLint rule should stay lightweight.
+- Favor local helpers only when they genuinely clarify the algorithm.
+- Don't weaken typing without a documented reason.
+- Keep comments rare and useful, especially to explain non-obvious ESLint or autofix cases.
 
-## Tests et validation
+## Tests and validation
 
-Si une suite de tests est ajoutée ou présente, privilégier `RuleTester` d’ESLint pour couvrir :
+If a test suite is added or already present, prefer ESLint's `RuleTester` to cover:
 
 - `FunctionDeclaration`
 - `FunctionExpression`
 - `ArrowFunctionExpression`
-- options `"always"`, `"never"` et `"consistent"`
+- `"always"`, `"never"`, and `"consistent"` options
 - autofix
-- paramètres avec commentaires
-- cas TypeScript courants lorsque le parser configuré le permet
+- parameters/specifiers with comments
+- common TypeScript cases when the configured parser allows it
 
-Sans suite de tests dédiée, `pnpm build` reste la vérification minimale obligatoire après modification du code TypeScript.
+Without a dedicated test suite, `pnpm build` remains the mandatory minimum check after any TypeScript code change.
 
-## Workflow GitHub : issues et Pull Requests
+## GitHub workflow: issues and Pull Requests
 
-- **Issues recommandées** : toute PR fonctionnelle doit être liée à une issue GitHub.
-- **Création d’issue** : utiliser `gh issue create` avec un titre et une description en français.
-- **Nommage des branches** : `{type}/{description-kebab-case}-{numéro-issue}`.
-  - Exemple : `fix/preserve-line-comments-autofix-23`
-- **Pull Requests** :
-  - titre aligné avec le commit principal
-  - corps avec référence `closes #<numéro-issue>` si applicable
-  - branche cible : `main`, sauf consigne contraire du mainteneur
+- **Issues recommended**: any functional PR should be linked to a GitHub issue.
+- **Issue creation**: use `gh issue create` with a title and description in English.
+- **Branch naming**: `{type}/{kebab-case-description}-{issue-number}`.
+  - Example: `fix/preserve-line-comments-autofix-23`
+- **Pull Requests**:
+  - title aligned with the main commit
+  - body with a `closes #<issue-number>` reference where applicable
+  - target branch: `main`, unless the maintainer says otherwise
 
-## Langue et communication
+## Language and communication
 
-Les échanges projet, issues, PR et messages de commit sont rédigés en français.
+Project exchanges, issues, PRs, and commit messages are written in English.
 
-Les éléments techniques restent en anglais lorsque c’est l’usage attendu :
+Technical elements naturally stay in their usual form:
 
-- noms de branches
-- noms de variables, fonctions, types et fichiers
-- identifiants de règles ESLint
-- exemples de code
-- messages d’erreur publics si l’API du package les expose déjà en anglais
-
-## Typographie française
-
-Dans les textes rédigés en français, appliquer les règles suivantes :
-
-- apostrophe française `’` dans les phrases
-- guillemets français « » avec espaces
-- point de suspension `…`
-- espace insécable avant `:`
-- espace fine insécable avant `;`, `!` et `?` lorsque le contexte le permet
-
-Les commandes, chemins, identifiants, chaînes techniques et exemples de code peuvent conserver la typographie ASCII attendue par les outils.
+- branch names
+- variable, function, type, and file names
+- ESLint rule identifiers
+- code examples
+- public error messages, matching the package's existing English-language API

@@ -1,86 +1,86 @@
-# Tâches IA
+# AI Tasks
 
-## 🧭 Objectif
+## 🧭 Goal
 
-Ce fichier organise les tâches utiles à utiliser avec des agents IA conversationnels selon les **skills** du projet.
+This file organizes tasks useful for conversational AI agents, grouped by the project's **skills**.
 
-Chaque skill dispose de sa propre liste de tâches :
+Each skill has its own task list:
 
 - **Code Implementation** → [`skills/code-implementation/tasks.md`](skills/code-implementation/tasks.md)
 - **Test Writing** → [`skills/test-writing/tasks.md`](skills/test-writing/tasks.md)
 - **Documentation** → [`skills/documentation/tasks.md`](skills/documentation/tasks.md)
 - **Commit Conventions** → [`skills/commit-conventions/tasks.md`](skills/commit-conventions/tasks.md)
 
-Toutes les tâches respectent les conventions définies dans [`instructions.md`](instructions.md).
+All tasks follow the conventions defined in [`instructions.md`](instructions.md).
 
 ---
 
-## 🔄 Tâches transversales
+## 🔄 Cross-cutting tasks
 
-Ces tâches concernent plusieurs domaines ou l’ensemble du projet.
+These tasks span multiple areas or the whole project.
 
-### 🧩 Analyse de la base de code
+### 🧩 Codebase analysis
 
-**Objectif :** obtenir une vue d’ensemble du projet.
+**Goal:** get an overview of the project.
 
-> Analyse l’ensemble du code dans `src/` et produis un résumé technique clair :
+> Analyze all the code in `src/` and produce a clear technical summary:
 >
-> - stack utilisée : ESLint, TypeScript, ESM, pnpm
-> - organisation des modules
-> - surface publique du plugin
-> - points forts et points faibles : clarté, duplication, typage, robustesse de l’autofix
-> - recommandations de refactorisation
-> - fichiers critiques à surveiller
+> - stack used: ESLint, TypeScript, ESM, pnpm
+> - module organization
+> - the plugin's public surface
+> - strengths and weaknesses: clarity, duplication, typing, autofix robustness
+> - refactoring recommendations
+> - critical files to watch
 
-*Fréquence recommandée : avant release ou changement important.*
+*Recommended frequency: before a release or a major change.*
 
 ---
 
-### 🧩 Génération de types
+### 🧩 Type generation
 
-> À partir d’une option de règle, d’un schéma JSON ESLint ou d’un objet de configuration, génère des types TypeScript précis.
-> Respecte les conventions du projet et évite d’exposer des types publics inutiles.
-
----
-
-### 💡 Migration / Modernisation
-
-> Propose un plan de migration de ce code vers une approche plus moderne.
-> Évalue notamment les APIs ESLint récentes, le typage TypeScript, la compatibilité ESM et les impacts sur le packaging publié sur le registre npm.
-> Indique les risques, bénéfices et étapes de validation.
+> From a rule option, an ESLint JSON schema, or a configuration object, generate precise TypeScript types.
+> Follow the project's conventions and avoid exposing unnecessary public types.
 
 ---
 
-### 🧰 Audit des dépendances
+### 💡 Migration / Modernization
 
-**Objectif :** surveiller les dépendances obsolètes ou à risque.
-
-> Lis le `package.json` et vérifie :
->
-> - les versions non à jour
-> - les dépendances à risque d’après `pnpm audit`
-> - les packages inutilisés
-> - la cohérence entre `peerDependencies` et `devDependencies`
-> - la compatibilité avec ESLint 9/10 et TypeScript
->
-> Génère un résumé clair et propose les mises à jour prioritaires.
-
-*Fréquence recommandée : mensuelle ou avant publication sur le registre npm.*
+> Propose a migration plan to move this code to a more modern approach.
+> Evaluate recent ESLint APIs, TypeScript typing, ESM compatibility, and the impact on the package published to the npm registry.
+> Note the risks, benefits, and validation steps.
 
 ---
 
-### 🧠 Revue IA du code récent
+### 🧰 Dependency audit
 
-**Objectif :** vérifier automatiquement les changements récents.
+**Goal:** watch for outdated or risky dependencies.
 
-> Pour les fichiers modifiés depuis le dernier commit, fais une revue :
+> Read `package.json` and check:
 >
-> - cohérence de style et typage
-> - respect des conventions
-> - robustesse des règles ESLint et de l’autofix
-> - compatibilité avec la surface publique
-> - tests associés présents ou manquants
+> - outdated versions
+> - dependencies flagged as risky by `pnpm audit`
+> - unused packages
+> - consistency between `peerDependencies` and `devDependencies`
+> - compatibility with ESLint 9/10 and TypeScript
 >
-> Génère un rapport Markdown dans `.ai-review.md` si demandé explicitement.
+> Produce a clear summary and propose the highest-priority updates.
 
-*Fréquence recommandée : avant PR.*
+*Recommended frequency: monthly, or before publishing to the npm registry.*
+
+---
+
+### 🧠 AI review of recent code
+
+**Goal:** automatically check recent changes.
+
+> For files changed since the last commit, review:
+>
+> - style and typing consistency
+> - convention compliance
+> - robustness of the ESLint rules and their autofix
+> - compatibility with the public surface
+> - associated tests, present or missing
+>
+> Generate a Markdown report in `.ai-review.md` if explicitly requested.
+
+*Recommended frequency: before a PR.*

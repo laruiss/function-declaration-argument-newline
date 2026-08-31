@@ -1,31 +1,31 @@
-# Tâches - Documentation
+# Tasks - Documentation
 
-## 📄 Documenter une règle ESLint
+## 📄 Document an ESLint rule
 
-> Mets à jour la documentation d’une règle ESLint.
-> Décris son objectif, ses options, les cas valides et invalides, l’autofix éventuel et un exemple de configuration flat config.
+> Update the documentation for an ESLint rule.
+> Describe its purpose, its options, valid and invalid cases, any autofix, and a flat config example.
 
-## 📖 Mettre à jour le README
+## 📖 Update the README
 
-> Mets à jour `README.md` pour refléter la surface publique actuelle du package.
-> Inclue l’installation si nécessaire, l’usage avec flat config, la liste des règles et les commandes de développement pertinentes.
+> Update `README.md` to reflect the package's current public surface.
+> Include installation if needed, flat config usage, the list of rules, and the relevant development commands.
 
-## ✅ Vérifier la liste des règles
+## ✅ Check the rule list
 
-> Analyse `src/index.ts` et `src/rules/`, puis vérifie que toutes les règles publiques sont documentées dans `README.md`.
-> Indique les règles manquantes et propose une mise à jour.
+> Analyze `src/index.ts` and `src/rules/`, then check that all public rules are documented in `README.md`.
+> Point out any missing rules and propose an update.
 
-## 📚 Synthèse de veille technique
+## 📚 Technical watch summary
 
-**Objectif :** Rester à jour sur les dépendances et outils utilisés.
+**Goal:** stay up to date on the dependencies and tools used.
 
-> Génère une courte note de veille technique à partir des dépendances du projet :
+> Generate a short technical watch note based on the project's dependencies:
 >
-> - changements récents dans ESLint, TypeScript et les APIs de règles
-> - compatibilité ESLint 9/10
-> - pratiques de test avec `RuleTester`
-> - impacts potentiels sur le packaging ESM publié sur le registre npm
+> - recent changes in ESLint, TypeScript, and the rule APIs
+> - ESLint 9/10 compatibility
+> - testing practices with `RuleTester`
+> - potential impacts on the ESM packaging published to the npm registry
 >
-> Résume les tendances pertinentes et les risques de migration.
+> Summarize the relevant trends and migration risks.
 
-*Fréquence recommandée : mensuelle.*
+*Recommended frequency: monthly.*

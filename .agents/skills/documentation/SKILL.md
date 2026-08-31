@@ -5,7 +5,7 @@ description: 'Documentation and narrative content for this ESLint plugin. USE FO
 
 # Documentation
 
-## Documentation associée
+## Associated documentation
 
-- [`../../instructions.md`](../../instructions.md) — règles de codage communes
-- [`tasks.md`](tasks.md) — tâches courantes pour la documentation
+- [`../../instructions.md`](../../instructions.md) — common coding rules
+- [`tasks.md`](tasks.md) — common documentation tasks

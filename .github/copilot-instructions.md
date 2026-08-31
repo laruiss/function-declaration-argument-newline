@@ -1,22 +1,22 @@
-# Adaptateur Copilot
+# Copilot Adapter
 
-Extensions spécifiques à Copilot pour le projet `function-declaration-argument-newline`.
+Copilot-specific extensions for the `function-declaration-argument-newline` project.
 
-## Règles communes
+## Common rules
 
-Consulter [`AGENTS.md`](../AGENTS.md) pour le guide central agnostique.
+See [`AGENTS.md`](../AGENTS.md) for the central, agnostic guide.
 
-Les **Skills** du projet s'appliquent automatiquement :
-- `.agents/skills/code-implementation/` — implémentation & refactoring
+The project's **Skills** apply automatically:
+- `.agents/skills/code-implementation/` — implementation & refactoring
 - `.agents/skills/test-writing/` — tests
 - `.agents/skills/documentation/` — documentation
-- `.agents/skills/commit-conventions/` — commits & PR (priorité absolue)
+- `.agents/skills/commit-conventions/` — commits & PR (absolute priority)
 
-## Commandes custom
+## Custom commands
 
-Les workflows communs vivent dans `.agents/*` et les commandes adaptées dans `.github/prompts/*`.
+Common workflows live in `.agents/*` and the adapted commands in `.github/prompts/*`.
 
-Les commandes Copilot sont exposées comme prompt files dans `.github/prompts/*.prompt.md` :
+Copilot commands are exposed as prompt files in `.github/prompts/*.prompt.md`:
 - `/commit-staged`
 - `/create-branch`
 - `/create-issue`
@@ -24,6 +24,6 @@ Les commandes Copilot sont exposées comme prompt files dans `.github/prompts/*.
 
 ## Agent-only (Copilot)
 
-- Raison : GitHub Copilot expose les workflows réutilisables via des prompt files.
-- Impact : Copilot utilise les skills communes et les commandes custom de `.github/prompts/*`.
-- Fallback : consulter `.agents/*` et `AGENTS.md`
+- Reason: GitHub Copilot exposes reusable workflows via prompt files.
+- Impact: Copilot uses the common skills and the custom commands from `.github/prompts/*`.
+- Fallback: see `.agents/*` and `AGENTS.md`

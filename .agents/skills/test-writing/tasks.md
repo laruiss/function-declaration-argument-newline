@@ -1,17 +1,17 @@
-# Tâches - Stratégie de Test
+# Tasks - Test Strategy
 
-## 🧪 Tests de règle ESLint
+## 🧪 ESLint rule tests
 
-> Écris des tests pour une règle ESLint avec `RuleTester`.
-> Couvre les cas valides, invalides, les messages, les options et les sorties d’autofix.
-> Ajoute des cas pour `FunctionDeclaration`, `FunctionExpression` et `ArrowFunctionExpression` lorsque la règle porte sur les fonctions.
+> Write tests for an ESLint rule using `RuleTester`.
+> Cover valid cases, invalid cases, messages, options, and autofix outputs.
+> Add cases for `FunctionDeclaration`, `FunctionExpression`, and `ArrowFunctionExpression` when the rule deals with functions.
 
-## 🧪 Vérification de la couverture de tests
+## 🧪 Test coverage check
 
-**Objectif :** Identifier les zones non testées.
+**Goal:** identify untested areas.
 
-> Analyse les fichiers de tests existants et croise-les avec les règles exportées dans `src/index.ts`.
-> Liste les règles non couvertes, les options non testées et les cas d’autofix manquants.
-> Propose un plan de tests priorisé.
+> Analyze the existing test files and cross-reference them with the rules exported in `src/index.ts`.
+> List uncovered rules, untested options, and missing autofix cases.
+> Propose a prioritized test plan.
 
-*Fréquence recommandée : avant release ou changement de comportement d’une règle.*
+*Recommended frequency: before a release or a behavior change in a rule.*

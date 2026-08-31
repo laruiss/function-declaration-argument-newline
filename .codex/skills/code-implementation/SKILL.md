@@ -3,8 +3,8 @@ name: code-implementation
 description: 'Code implementation, refactoring, and bugfixes for this ESLint plugin. Use for implementing rules, refactoring TypeScript, or fixing plugin behavior. Read the shared project skill before acting.'
 ---
 
-# Adaptateur Codex - Implémentation et Refactoring
+# Codex Adapter - Implementation and Refactoring
 
-Cette skill expose à Codex la skill commune [`../../../.agents/skills/code-implementation/SKILL.md`](../../../.agents/skills/code-implementation/SKILL.md).
+This skill exposes to Codex the common skill [`../../../.agents/skills/code-implementation/SKILL.md`](../../../.agents/skills/code-implementation/SKILL.md).
 
-Après activation, lire entièrement la skill commune, puis les fichiers qu'elle référence.
+After activation, read the common skill in full, then the files it references.

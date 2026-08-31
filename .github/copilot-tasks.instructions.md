@@ -1,4 +1,4 @@
-# Adaptateur Copilot - Tâches function-declaration-argument-newline
+# Copilot Adapter - function-declaration-argument-newline Tasks
 
-Voir `AGENTS.md` pour la détection de contexte et le chargement obligatoire.
-Référence tâche : `.agents/tasks.md`.
+See `AGENTS.md` for context detection and mandatory loading.
+Task reference: `.agents/tasks.md`.

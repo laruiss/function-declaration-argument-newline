@@ -1,5 +1,5 @@
 # Commit Staged
 
-Commande Codex exposant les conventions communes de commit [`../../.agents/commit-message.md`](../../.agents/commit-message.md).
+Codex command exposing the common commit conventions [`../../.agents/commit-message.md`](../../.agents/commit-message.md).
 
-Lire entièrement ce fichier source avant d’exécuter la commande, puis créer un commit uniquement à partir des fichiers déjà indexés.
+Read this source file in full before running the command, then create a commit using only the files already staged.
