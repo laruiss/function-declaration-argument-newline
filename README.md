@@ -74,6 +74,42 @@ import {
 } from 'vitest'
 ```
 
+### `object-pattern-property-newline`
+
+`@stylistic/object-curly-newline` covers `ObjectPattern` for the braces too —
+so the `{` and `}` of a destructured parameter, variable, or catch binding
+correctly end up on their own line once there are 2+ properties.
+
+But `@stylistic/object-property-newline` only listens to `ObjectExpression`,
+`TSTypeLiteral` and `TSInterfaceBody` — it doesn't cover `ObjectPattern`. So a
+destructured pattern's properties can still end up packed together between
+the braces:
+
+```ts
+const usePrefixedErrorState = ({
+  prefix, errorProps = useInjectedErrorProps(), tabKeyTransform,
+}: Options) => { /* ... */ }
+```
+
+This rule adds the missing per-property behavior for destructured object
+patterns (function parameters, variable declarations, catch clauses),
+mirroring the other two rules option-for-option.
+
+Options: `"always"` (default) | `"never"` | `"consistent"`.
+
+```js
+'@laruiss/newline/object-pattern-property-newline': ['error', 'always']
+```
+
+```ts
+// always
+const usePrefixedErrorState = ({
+  prefix,
+  errorProps = useInjectedErrorProps(),
+  tabKeyTransform,
+}: Options) => { /* ... */ }
+```
+
 ## Usage
 
 Flat config (`eslint.config.js` / `eslint.config.ts`):
@@ -89,6 +125,7 @@ export default [
     rules: {
       '@laruiss/newline/function-declaration-argument-newline': ['error', 'always'],
       '@laruiss/newline/import-specifier-newline': ['error', 'always'],
+      '@laruiss/newline/object-pattern-property-newline': ['error', 'always'],
     },
   },
 ]
