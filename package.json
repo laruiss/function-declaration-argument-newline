@@ -1,6 +1,6 @@
 {
   "name": "@laruiss/function-declaration-argument-newline",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "ESLint rules for line-break placement that the core stylistic rule set doesn't cover yet, starting with per-parameter newlines in function definitions.",
   "type": "module",
   "license": "MIT",
