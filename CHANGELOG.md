@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://github.com/laruiss/function-declaration-argument-newline/compare/function-declaration-argument-newline-v0.3.0...function-declaration-argument-newline-v0.4.0) (2026-08-31)
+
+
+### Features
+
+* **rules:** add a rule for one destructured property per line ([5893234](https://github.com/laruiss/function-declaration-argument-newline/commit/5893234eda0834c77701c35a9f791a472e87de7e))
+* **rules:** add a rule for one destructured property per line ([4b99df7](https://github.com/laruiss/function-declaration-argument-newline/commit/4b99df785c79f6f61b09864ad9c1e68986286cf8)), closes [#10](https://github.com/laruiss/function-declaration-argument-newline/issues/10)
+
 ## [0.3.0](https://github.com/laruiss/function-declaration-argument-newline/compare/function-declaration-argument-newline-v0.2.0...function-declaration-argument-newline-v0.3.0) (2026-08-31)
 
 
