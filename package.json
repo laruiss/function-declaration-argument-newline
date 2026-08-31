@@ -1,6 +1,6 @@
 {
   "name": "@laruiss/eslint-plugin-newline",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ESLint rules for line-break placement that the core stylistic rule set doesn't cover yet, starting with per-parameter newlines in function definitions.",
   "type": "module",
   "license": "MIT",
