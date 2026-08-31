@@ -3,18 +3,18 @@ name: code-implementation
 description: 'Code implementation, refactoring, and bugfixes for this ESLint plugin. USE FOR: implementing rules; refactoring TypeScript; fixing plugin behavior; modifying exports. DO NOT USE FOR: writing tests (separate skill); documentation (separate skill); commit conventions (separate skill).'
 ---
 
-# Implémentation et Refactoring
+# Implementation and Refactoring
 
-## Procédure
+## Procedure
 
-1. Lire `../../instructions.md`, puis `tasks.md`.
-2. Inspecter les fichiers voisins avant de modifier une règle ou l’export du plugin.
-3. Préserver l’API publique sauf demande explicite de changement incompatible.
-4. Mettre à jour `src/index.ts` quand la liste des règles ou les métadonnées publiques changent.
-5. Ne pas modifier les artefacts générés (`dist/`) sauf demande explicite.
-6. Vérifier avec les commandes ciblées pertinentes : `pnpm build`, puis `pnpm pack --dry-run` pour les changements de packaging.
+1. Read `../../instructions.md`, then `tasks.md`.
+2. Inspect neighboring files before modifying a rule or the plugin's export.
+3. Preserve the public API unless an incompatible change is explicitly requested.
+4. Update `src/index.ts` whenever the rule list or the public metadata changes.
+5. Don't edit generated artifacts (`dist/`) unless explicitly requested.
+6. Verify with the relevant targeted commands: `pnpm build`, then `pnpm pack --dry-run` for packaging changes.
 
-## Documentation associée
+## Associated documentation
 
-- [`../../instructions.md`](../../instructions.md) — règles de codage communes
-- [`tasks.md`](tasks.md) — tâches courantes pour l’implémentation
+- [`../../instructions.md`](../../instructions.md) — common coding rules
+- [`tasks.md`](tasks.md) — common implementation tasks

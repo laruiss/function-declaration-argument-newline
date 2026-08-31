@@ -1,5 +1,5 @@
 # Create Issue
 
-Commande Codex exposant les conventions communes [`../../.agents/tasks.md`](../../.agents/tasks.md).
+Codex command exposing the common conventions [`../../.agents/tasks.md`](../../.agents/tasks.md).
 
-Lire entièrement ce fichier source avant d’exécuter la commande, puis créer une issue GitHub en français à partir des changements indexés.
+Read this source file in full before running the command, then create a GitHub issue in English from the staged changes.

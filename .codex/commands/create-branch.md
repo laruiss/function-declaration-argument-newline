@@ -1,5 +1,5 @@
 # Create Branch
 
-Commande Codex exposant les conventions communes [`../../.agents/skills/commit-conventions/tasks.md`](../../.agents/skills/commit-conventions/tasks.md).
+Codex command exposing the common conventions [`../../.agents/skills/commit-conventions/tasks.md`](../../.agents/skills/commit-conventions/tasks.md).
 
-Lire entièrement ce fichier source avant d’exécuter la commande, puis créer une branche conforme à partir de l’issue demandée.
+Read this source file in full before running the command, then create a compliant branch from the requested issue.

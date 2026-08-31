@@ -1,13 +1,13 @@
-# Guide des instructions IA
+# AI Instructions Guide
 
-Commande Codex équivalente à [`../../.claude/commands/guide.md`](../../.claude/commands/guide.md).
+Codex command equivalent to [`../../.claude/commands/guide.md`](../../.claude/commands/guide.md).
 
-Références à utiliser pour toutes les contributions :
+References to use for all contributions:
 
-- `AGENTS.md` (porte d'entrée commune)
-- `.agents/README.md` (gouvernance multi-agent)
-- `.agents/instructions.md` (règles de codage)
-- `.agents/tasks.md` (consignes par type de tâche)
-- `.agents/commit-message.md` (format des commits)
+- `AGENTS.md` (common entry point)
+- `.agents/README.md` (multi-agent governance)
+- `.agents/instructions.md` (coding rules)
+- `.agents/tasks.md` (instructions per task type)
+- `.agents/commit-message.md` (commit format)
 
-Les fichiers agent-spécifiques doivent rester des adaptateurs et ne contenir que des compléments `Agent-only`.
+Agent-specific files must stay adapters and contain only `Agent-only` additions.

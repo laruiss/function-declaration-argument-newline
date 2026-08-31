@@ -1,123 +1,123 @@
-# Tâches - Conventions de Commit et PR
+# Tasks - Commit and PR Conventions
 
-## Format obligatoire du commit
+## Mandatory commit format
 
 ```text
-type: gitmoji description courte en français
-type(scope): gitmoji description courte en français
+type: gitmoji short description in English
+type(scope): gitmoji short description in English
 
-## Pourquoi :
-- Explication du contexte et des raisons
-- Problème résolu ou besoin adressé
+## Why:
+- Context and reasoning
+- Problem solved or need addressed
 
-## Quoi :
-- Description détaillée des modifications
-- Impact sur l’architecture, la règle ESLint ou le packaging
+## What:
+- Detailed description of the changes
+- Impact on the architecture, the ESLint rule, or the packaging
 
 closes #1234
 ```
 
-**Types autorisés** :
+**Allowed types**:
 
-- `feat` ✨ — nouvelle fonctionnalité ou nouvelle règle
-- `fix` 🐛 — correction de bug
-- `refactor` ♻️ — refactorisation sans changement de comportement
-- `style` 💄 — formatage sans changement logique
-- `test` ✅ — ajout ou correction de tests
-- `docs` 📝 — documentation, commentaires
+- `feat` ✨ — new feature or new rule
+- `fix` 🐛 — bug fix
+- `refactor` ♻️ — refactoring with no behavior change
+- `style` 💄 — formatting with no logic change
+- `test` ✅ — adding or fixing tests
+- `docs` 📝 — documentation, comments
 - `chore` 🔧 — configuration, tooling, maintenance
-- `build` 📦️ — build, packaging ou dépendances
-- `ci` 👷 — intégration continue
+- `build` 📦️ — build, packaging, or dependencies
+- `ci` 👷 — continuous integration
 
-**Scopes utiles** :
+**Useful scopes**:
 
-- `function-declaration-argument-newline` pour la règle actuelle
-- `rules` pour plusieurs règles
-- `plugin` pour l’export ou les métadonnées du plugin
+- `function-declaration-argument-newline` for that rule
+- `import-specifier-newline` for that rule
+- `rules` for multiple rules
+- `plugin` for the plugin's export or metadata
 - `build`, `ci`, `docs`, `types`, `release`
 
-Le scope n’est pas obligatoire. Utilise-le lorsqu’il apporte un contexte utile.
+The scope isn't mandatory. Use it when it adds useful context.
 
-**Directives appliquées** :
+**Applied guidelines**:
 
-- tous les textes en français
-- typographie française dans les phrases rédigées
-- troisième personne du singulier présent pour la description courte
-- pas de majuscule au début de la description courte
-- gitmoji obligatoire correspondant au type
-- sections « Pourquoi » et « Quoi » présentes et significatives
-- footer d’issue `closes #1234` ou `fixes #1234` si applicable
-- branche au format `type/description-kebab-case-numéro-issue` lorsqu’une issue existe
+- all text in English
+- third-person singular, present tense for the short description
+- no capital letter at the start of the short description
+- gitmoji required, matching the type
+- "Why" and "What" sections present and meaningful
+- issue footer `closes #1234` or `fixes #1234` where applicable
+- branch in the format `type/kebab-case-description-issue-number` when an issue exists
 
-### Exemple complet
+### Full example
 
 ```text
-fix(function-declaration-argument-newline): 🐛 préserve les commentaires de ligne pendant l’autofix
+fix(function-declaration-argument-newline): 🐛 preserve line comments during autofix
 
-## Pourquoi :
-- L’autofix ne doit pas déplacer un commentaire de ligne placé entre deux paramètres
-- Le comportement actuel peut produire une correction ambiguë pour ESLint
+## Why:
+- Autofix must not move a line comment placed between two parameters
+- The current behavior can produce an ambiguous fix for ESLint
 
-## Quoi :
-- Détecte les commentaires de ligne avant de proposer un fix
-- Conserve le signalement sans fixer automatiquement le cas risqué
-- Ajoute une couverture de test pour ce scénario
+## What:
+- Detects line comments before offering a fix
+- Keeps the report without auto-fixing the risky case
+- Adds test coverage for this scenario
 
 closes #1337
 ```
 
-## ✍️ Créer un message de commit
+## ✍️ Write a commit message
 
-> Propose un message de commit conforme au standard du projet à partir des fichiers modifiés.
-> Respecte le format Conventional Commit + gitmoji. Le scope est optionnel.
-> Utilise un scope lié à la règle, au plugin ou au packaging lorsqu’il clarifie le changement.
+> Propose a commit message that follows the project's standard, based on the changed files.
+> Follow the Conventional Commit + gitmoji format. The scope is optional.
+> Use a scope tied to the rule, the plugin, or the packaging when it clarifies the change.
 
-## ✅ Vérifier un message de commit
+## ✅ Check a commit message
 
-> Vérifie qu’un message de commit respecte les conventions du projet :
+> Check that a commit message follows the project's conventions:
 >
-> - type Conventional Commit valide
-> - gitmoji cohérent avec l’intention
-> - description courte au bon format
-> - scope correct s’il est présent
-> - sections « Pourquoi » et « Quoi » présentes et significatives
-> - textes en français
-> - footer d’issue si applicable
+> - valid Conventional Commit type
+> - gitmoji consistent with the intent
+> - short description in the correct format
+> - correct scope, if present
+> - "Why" and "What" sections present and meaningful
+> - text in English
+> - issue footer where applicable
 >
-> Si le message n’est pas conforme, propose une version corrigée complète.
+> If the message doesn't comply, propose a fully corrected version.
 
-## 🌿 Vérifier le nom de branche
+## 🌿 Check the branch name
 
-> Vérifie que la branche respecte les conventions du projet :
+> Check that the branch follows the project's conventions:
 >
-> - préfixe par le type et un slash
-> - description en anglais et en kebab-case
-> - suffixe par le numéro d’issue GitHub si la branche est liée à une issue
-> - tirets au lieu d’underscores
+> - prefixed with the type and a slash
+> - description in English, kebab-case
+> - suffixed with the GitHub issue number if the branch is linked to one
+> - hyphens instead of underscores
 >
-> Propose un nom de branche corrigé si nécessaire.
+> Propose a corrected branch name if needed.
 
-## 🧾 Rédiger un titre de Pull Request
+## 🧾 Write a Pull Request title
 
-> Propose un titre de Pull Request aligné avec le commit principal.
-> Assure la cohérence entre le type, le scope optionnel et la description courte.
+> Propose a Pull Request title aligned with the main commit.
+> Ensure consistency between the type, the optional scope, and the short description.
 
-## 🎯 Vérifier la cible de Pull Request
+## 🎯 Check the Pull Request target
 
-> Vérifie que la Pull Request cible la branche attendue du dépôt.
-> Par défaut, utiliser `main`, sauf consigne contraire du mainteneur.
+> Check that the Pull Request targets the expected branch of the repository.
+> Default to `main`, unless the maintainer says otherwise.
 
-## 🧭 Arbitrer le type de commit
+## 🧭 Decide on a commit type
 
-> En cas d’hésitation entre plusieurs types (`fix`, `feat`, `refactor`, `docs`, etc.), applique les règles de priorité du projet et justifie brièvement le choix.
+> When hesitating between several types (`fix`, `feat`, `refactor`, `docs`, etc.), apply the project's priority rules and briefly justify the choice.
 >
-> **Règles** :
+> **Rules**:
 >
-> - `fix` : correction d’un comportement incorrect
-> - `feat` : nouvelle règle ou nouveau comportement public
-> - `refactor` : changement technique sans impact comportemental
-> - `test` : ajout ou correction de tests
-> - `docs` : documentation uniquement
-> - `build` : build, packaging ou dépendances
-> - `ci` : intégration continue
-> - `chore` : maintenance hors build et CI
+> - `fix`: fixing incorrect behavior
+> - `feat`: new rule or new public behavior
+> - `refactor`: technical change with no behavioral impact
+> - `test`: adding or fixing tests
+> - `docs`: documentation only
+> - `build`: build, packaging, or dependencies
+> - `ci`: continuous integration
+> - `chore`: maintenance outside build and CI

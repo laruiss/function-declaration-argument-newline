@@ -1,12 +1,12 @@
 ---
 name: create-branch
-description: Crée une branche locale à partir d'une issue GitHub.
+description: Creates a local branch from a GitHub issue.
 argument-hint: "<issue id|#issue|issue URL>"
 agent: agent
 ---
 
 # Create Branch
 
-Prompt GitHub Copilot exposant les conventions communes [`../../.agents/skills/commit-conventions/tasks.md`](../../.agents/skills/commit-conventions/tasks.md).
+GitHub Copilot prompt exposing the common conventions [`../../.agents/skills/commit-conventions/tasks.md`](../../.agents/skills/commit-conventions/tasks.md).
 
-Lire entièrement ce fichier source avant d’exécuter la commande, puis créer une branche conforme à partir de l’issue demandée.
+Read this source file in full before running the command, then create a compliant branch from the requested issue.

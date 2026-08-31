@@ -1,50 +1,50 @@
-# Tâches - Implémentation et Refactoring
+# Tasks - Implementation and Refactoring
 
-## 🔍 Analyser le code
+## 🔍 Analyze the code
 
-> Analyse ce fichier et résume sa structure et sa logique principale.
-> Indique les parties complexes ou redondantes, puis propose des simplifications adaptées à un plugin ESLint TypeScript.
+> Analyze this file and summarize its structure and main logic.
+> Point out complex or redundant parts, then propose simplifications suited to a TypeScript ESLint plugin.
 
-## 🧠 Explication pédagogique
+## 🧠 Pedagogical explanation
 
-> Explique ce code comme si tu parlais à un développeur junior TypeScript qui découvre l’API de règles ESLint.
-> Précise les concepts clés : visiteurs AST, `context.report`, tokens, ranges, autofix et options de règle.
+> Explain this code as if talking to a junior TypeScript developer discovering the ESLint rule API.
+> Cover the key concepts: AST visitors, `context.report`, tokens, ranges, autofix, and rule options.
 
-## 🧩 Nouvelle règle ESLint
+## 🧩 New ESLint rule
 
-> Crée une nouvelle règle ESLint dans `src/rules/`.
-> Définis ses métadonnées (`type`, `docs`, `schema`, `messages`, `fixable` si nécessaire), implémente les visiteurs AST et exporte la règle depuis `src/index.ts`.
-> Mets à jour le README avec le nom public, les options et un exemple de configuration.
+> Create a new ESLint rule under `src/rules/`.
+> Define its metadata (`type`, `docs`, `schema`, `messages`, `fixable` if needed), implement the AST visitors, and export the rule from `src/index.ts`.
+> Update the README with the public name, the options, and a configuration example.
 
-## ✏️ Refactorisation générale
+## ✏️ General refactoring
 
-> Refactorise ce code selon nos conventions : TypeScript strict, ESM, fonctions explicites et surface publique stable.
-> Garde le même comportement, sauf demande explicite.
-> Vérifie que l’autofix reste déterministe et que les commentaires ne sont pas déplacés de manière risquée.
+> Refactor this code according to our conventions: strict TypeScript, ESM, explicit functions, and a stable public surface.
+> Keep the same behavior unless explicitly requested otherwise.
+> Verify that autofix stays deterministic and that comments aren't moved in a risky way.
 
-## 🙏 Revue de code
+## 🙏 Code review
 
-> Fais une revue technique de ce fichier : lisibilité, typage, conformité à l’API ESLint, complexité, cohérence des options et robustesse de l’autofix.
-> Donne des recommandations concrètes et priorisées.
+> Do a technical review of this file: readability, typing, compliance with the ESLint API, complexity, option consistency, and autofix robustness.
+> Give concrete, prioritized recommendations.
 
-## 🧰 Vérification des types
+## 🧰 Type check
 
-> Analyse ce fichier et indique les zones où le typage est faible ou implicite.
-> Propose une version plus robuste en limitant `any` aux endroits où les types ESLint disponibles ne suffisent pas.
+> Analyze this file and point out where typing is weak or implicit.
+> Propose a more robust version, limiting `any` to places where the available ESLint types aren't sufficient.
 
-## 📚 Résumé de projet
+## 📚 Project summary
 
-> Analyse la base de code et produis un résumé technique clair : stack, conventions, modules principaux, dépendances critiques et surface publique du package.
+> Analyze the codebase and produce a clear technical summary: stack, conventions, main modules, critical dependencies, and the package's public surface.
 
-## 🧰 Détection de code mort / redondant
+## 🧰 Dead / redundant code detection
 
-> Analyse `src/` et identifie :
+> Analyze `src/` and identify:
 >
-> - les fonctions jamais utilisées
-> - les règles non exportées
-> - les helpers redondants
-> - les doublons de logique entre règles
+> - functions that are never used
+> - rules that aren't exported
+> - redundant helpers
+> - duplicated logic between rules
 >
-> Suggère les fichiers ou helpers à supprimer, fusionner ou clarifier.
+> Suggest files or helpers to remove, merge, or clarify.
 
-*Fréquence recommandée : avant release.*
+*Recommended frequency: before a release.*

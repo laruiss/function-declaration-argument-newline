@@ -1,39 +1,39 @@
-# Gouvernance des consignes IA
+# AI Instruction Governance
 
-Ce document définit comment maintenir des consignes uniformes pour tous les agents IA (agnostique sur le type d'agent : Copilot, Claude, Codex, etc.).
+This document defines how to maintain uniform instructions for all AI agents (agnostic to agent type: Copilot, Claude, Codex, etc.).
 
-## Objectif
+## Goal
 
-- garantir un socle unique de règles pour tous les agents
-- autoriser des extensions limitées pour les capacités spécifiques d'un agent
-- éviter la duplication de consignes
-- rendre les workflows importants découvrables par les LLMs via des skills courtes et ciblées
+- guarantee a single common rule set for all agents
+- allow limited extensions for agent-specific capabilities
+- avoid duplicating instructions
+- make important workflows discoverable by LLMs via short, targeted skills
 
-## Hiérarchie des documents
+## Document hierarchy
 
-### Niveau 1 : Socle commun (agnostique)
+### Level 1: Common base (agnostic)
 
-1. **`instructions.md`** : règles de codage communes
-2. **`tasks.md`** : attentes communes par type de tâche
-3. **`commit-message.md`** : conventions de commit communes
-4. **`skills/`** : workflows spécialisés découvrables par contexte
-5. **Adaptateurs de commandes** : `.codex/commands/`, `.claude/commands/`, `.github/prompts/`
+1. **`instructions.md`**: common coding rules
+2. **`tasks.md`**: common expectations per task type
+3. **`commit-message.md`**: common commit conventions
+4. **`skills/`**: specialized workflows discoverable by context
+5. **Command adapters**: `.codex/commands/`, `.claude/commands/`, `.github/prompts/`
 
-### Niveau 2 : Adaptateurs d'agent
+### Level 2: Agent adapters
 
-- **`.github/copilot-instructions.md`** : compléments Copilot (si besoin)
-- **`.github/prompts/*`** : commandes custom GitHub Copilot vers les consignes communes
-- **`CLAUDE.md`** : compléments Claude (si besoin)
-- **`.claude/commands/*`** : commandes custom Claude Code vers les consignes communes
-- **`.codex/skills/*`** : wrappers Codex vers les skills communes
-- **`.codex/commands/*`** : commandes custom Codex vers les consignes communes
+- **`.github/copilot-instructions.md`**: Copilot-specific additions (if needed)
+- **`.github/prompts/*`**: GitHub Copilot custom commands pointing to the common instructions
+- **`CLAUDE.md`**: Claude-specific additions (if needed)
+- **`.claude/commands/*`**: Claude Code custom commands pointing to the common instructions
+- **`.codex/skills/*`**: Codex wrappers pointing to the common skills
+- **`.codex/commands/*`**: Codex custom commands pointing to the common instructions
 - etc.
 
-## Dossier `skills/`
+## The `skills/` folder
 
-Ce dossier contient des **workflows spécialisés agnostiques**, découvrables automatiquement par les agents selon le contexte.
+This folder contains **agnostic, specialized workflows**, automatically discoverable by agents based on context.
 
-**Structure** :
+**Structure**:
 ```
 skills/
 ├── code-implementation/
@@ -50,41 +50,41 @@ skills/
     └── tasks.md
 ```
 
-Chaque skill dispose de :
-- **SKILL.md** : description, contexte d'usage, documentation associée
-- **tasks.md** : tâches courantes pour ce skill
+Each skill has:
+- **SKILL.md**: description, usage context, associated documentation
+- **tasks.md**: common tasks for this skill
 
-**Chargement** : chaque agent doit lire entièrement le `SKILL.md` sélectionné, puis les fichiers qu'il référence (`tasks.md`, `instructions.md`, `commit-message.md`, etc.).
+**Loading**: each agent must read the selected `SKILL.md` in full, then the files it references (`tasks.md`, `instructions.md`, `commit-message.md`, etc.).
 
-Voir [`../AGENTS.md`](../AGENTS.md) pour le guide de sélection des skills.
+See [`../AGENTS.md`](../AGENTS.md) for the skill selection guide.
 
-## Règles de maintenance
+## Maintenance rules
 
-- Les règles communes vivent uniquement dans `.agents/*` (incluant `.agents/skills/`).
-- Les adaptateurs agents ne doivent pas recopier les règles communes.
-- Un nouveau workflow commun doit être ajouté dans `.agents/skills/<nom>/`.
-- Un wrapper Codex doit rester minimal : frontmatter, courte description, renvoi vers la skill commune.
-- Une commande custom d'agent (`.codex/commands/*`, `.claude/commands/*`, `.github/prompts/*`) doit rester minimale et renvoyer vers la commande ou la consigne commune correspondante.
-- Une règle spécifique à un agent doit être marquée `Agent-only (NomAgent)`.
+- Common rules live only in `.agents/*` (including `.agents/skills/`).
+- Agent adapters must not duplicate common rules.
+- A new common workflow must be added under `.agents/skills/<name>/`.
+- A Codex wrapper must stay minimal: frontmatter, short description, pointer to the common skill.
+- A custom agent command (`.codex/commands/*`, `.claude/commands/*`, `.github/prompts/*`) must stay minimal and point back to the corresponding common command or instruction.
+- A rule specific to one agent must be marked `Agent-only (AgentName)`.
 
-## Ajouter une nouvelle consigne
+## Adding a new instruction
 
-1. Déterminer la portée de la consigne.
-   - **Commune** : concerne tous les agents → modifier `.agents/*` (incluant `.agents/skills/`)
-   - **Spécifique** : concerne un seul agent → modifier uniquement le fichier adaptateur
-2. Documenter la raison, l'impact et le fallback si spécifique.
+1. Determine the scope of the instruction.
+   - **Common**: applies to all agents → edit `.agents/*` (including `.agents/skills/`)
+   - **Specific**: applies to a single agent → edit only the adapter file
+2. Document the reason, the impact, and the fallback if agent-specific.
 
-Format obligatoire pour une consigne spécifique :
+Required format for an agent-specific instruction:
 
 ```md
-## Agent-only (NomAgent)
-- Raison : ...
-- Impact : ...
-- Fallback : ...
+## Agent-only (AgentName)
+- Reason: ...
+- Impact: ...
+- Fallback: ...
 ```
 
-## Mainteneurs et collaborateurs
+## Maintainers and contributors
 
-- **Mainteneurs** : `.agents/*` (incluant `.agents/skills/`) font autorité
-- **Collaborateurs** : consulter `AGENTS.md` pour utiliser les skills au moment approprié
-- **Pour corriger un bug IA** : modifier le fichier concerné dans `.agents/*`, pas les adaptateurs
+- **Maintainers**: `.agents/*` (including `.agents/skills/`) are authoritative
+- **Contributors**: check `AGENTS.md` to use the skills at the right time
+- **To fix an AI bug**: edit the relevant file in `.agents/*`, not the adapters
