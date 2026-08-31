@@ -5,6 +5,10 @@
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@10.28.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laruiss/function-declaration-argument-newline.git"
+  },
   "publishConfig": {
     "access": "public"
   },
